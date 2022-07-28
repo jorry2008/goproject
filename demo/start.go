@@ -13,4 +13,6 @@ func main() {
 	// 类型与引用
 	chapter1.Example2()
 
+	// 函数
+	chapter1.Example3()
 }
