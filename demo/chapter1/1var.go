@@ -1,13 +1,16 @@
 // Package chapter1 声明与初始化
 package chapter1
 
+// PublicVar 公有变量，只定义不使用（任何方法外定义的变量都必须有 var，否则是赋值不是声明）
+var PublicVar string
+
 // 只声明不初始化两个变量，一个类型
 var x, y int
 
-// 这种因式分解关键字的写法一般用于声明全局变量
+// 并行声明，这种因式分解关键字的写法一般用于声明全局变量
 var (
-	a int
-	b bool
+	a int  // 默认值为 0
+	b bool // 默认值为 false
 )
 
 // 一个类型声明两个变量，同时初始化两个值
@@ -19,7 +22,7 @@ var e, f = 123, "hello"
 // 所有有类型但不初始化的变量都有默认值，float32 的默认值为：+0.000000e+000
 var ff float32
 
-// 便捷格式，不能用于函数外，只能在函数体中出现
+// 便捷格式的错误用法，不能用于函数外，只能在函数体中出现
 //g, h := 123, "hello"
 
 func Example1() {
