@@ -1,4 +1,4 @@
-package chapter1
+package chapter2
 
 // 在Go语言中的值类型有：int、float、bool、string、array、struct 等
 // 它们都有对应的指针类型，比如：*int、*float 等

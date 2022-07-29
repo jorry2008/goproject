@@ -6,9 +6,12 @@ package main
 
 import (
 	"demo/chapter1"
+	"demo/chapter2"
 )
 
 func main() {
+
+	// 第一单元
 
 	// 1.声明与初始化
 	chapter1.Example1()
@@ -39,8 +42,10 @@ func main() {
 	// 8.作用域
 	chapter1.Example8()
 
+	// 第二单元
+
 	// 9.数组
-	chapter1.Example9()
+	chapter2.Example9()
 
 }
 

@@ -1,4 +1,4 @@
-package chapter1
+package chapter2
 
 func Example88800885() {
 
