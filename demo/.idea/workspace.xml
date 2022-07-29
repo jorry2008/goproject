@@ -5,12 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="85f33e24-2e35-4351-890c-4368668e9921" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/chapter1/1var.go" beforeDir="false" afterPath="$PROJECT_DIR$/chapter1/1var.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/chapter1/2type.go" beforeDir="false" afterPath="$PROJECT_DIR$/chapter1/2type.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/chapter1/func.go" beforeDir="false" afterPath="$PROJECT_DIR$/chapter1/func.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/go.mod" beforeDir="false" afterPath="$PROJECT_DIR$/go.mod" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/chapter1/func.go" beforeDir="false" afterPath="$PROJECT_DIR$/chapter1/7func.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/chapter1/package.go" beforeDir="false" afterPath="$PROJECT_DIR$/chapter1/package.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/start.go" beforeDir="false" afterPath="$PROJECT_DIR$/start.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/start2.go" beforeDir="false" afterPath="$PROJECT_DIR$/start2.go" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -49,11 +49,12 @@
     "RunOnceActivity.go.watchers.conflict.with.on.save.actions.check.performed": "true",
     "WebServerToolWindowFactoryState": "false",
     "go.import.settings.migrated": "true",
-    "last_opened_file_path": "D:/goproject/demo"
+    "last_opened_file_path": "D:/goproject/demo/chapter1"
   }
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\goproject\demo\chapter1" />
       <recent name="D:\goproject\demo" />
     </key>
   </component>

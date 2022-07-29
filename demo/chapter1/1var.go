@@ -1,7 +1,7 @@
 // Package chapter1 声明与初始化
 package chapter1
 
-// PublicVar 公有变量，只定义不使用（任何方法外定义的变量都必须有 var，否则是赋值不是声明）
+// PublicVar 公有变量，只定义不使用（任何函数外定义的变量都必须有 var，否则是赋值不是声明）
 var PublicVar string
 
 // 只声明不初始化两个变量，一个类型
