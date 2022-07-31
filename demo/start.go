@@ -1,13 +1,13 @@
 // 声明
 package main
 
-// 风格要求：非注释的第一行必须指明当前文件所属的包
-// 执行要求：package main 表示一个可独立执行的程序，每个 Go 应用程序都至少包含一个名为 main 的包，且必须包括执行入口 main 函数
-
 import (
 	"demo/chapter1"
 	"demo/chapter2"
 )
+
+// 风格要求：非注释的第一行必须指明当前文件所属的包
+// 执行要求：package main 表示一个可独立执行的程序，每个 Go 应用程序都至少包含一个名为 main 的包，且必须包括执行入口 main 函数
 
 func main() {
 
@@ -46,6 +46,9 @@ func main() {
 
 	// 9.数组
 	chapter2.Example9()
+
+	// 测试
+	//chapter2.Example009()
 
 }
 

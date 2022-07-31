@@ -66,7 +66,7 @@ func swap(a, b int) (int, int) { // 定义函数参数时，a 和 b 叫形式参
 func quoteSwap(x *int, y *int) { // x, y 在这里就是指针类型，存储的是地址值
 	var temp int
 	temp = *x // 想要取值，就得解引用操作
-	*x = *y
+	*x = *y   // 重点！接受赋值用的 x 也必须是这种形式 *x 表示取值状态，也表示同类型，否则无法赋值【*x被赋值，即表示x的引用被赋值】
 	*y = temp // 到这一步，程序将两个内存中的值交换了
 }
 

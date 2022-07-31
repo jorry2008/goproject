@@ -9,4 +9,20 @@ package chapter2
 
 func Example009() {
 
+	println("Pointer:")
+
+	x := 9
+	y := 10
+	//fmt.Printf("%T", &x) // 指针类型 *int
+
+	*&x = 25 // 引用和解引用，x还是本身，所以这里重新对 x 赋值了
+
+	//z := &y // 简写
+	var z *int = &y // z为引用类型，才能接受 &y 引用
+	*z = 100        // 函数传引用，然后函数体内部 *z 操作，对原实参产生影响，*z 表示的就是原来最初的那个 y
+
+	println(x) // 25
+	println(z) // 0xc000109f40
+	println(y) // 100
+
 }
