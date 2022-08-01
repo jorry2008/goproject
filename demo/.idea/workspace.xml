@@ -4,8 +4,14 @@
     <option name="autoReloadType" value="ALL" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="85f33e24-2e35-4351-890c-4368668e9921" name="Changes" comment="">
+    <list default="true" id="85f33e24-2e35-4351-890c-4368668e9921" name="Changes" comment="初始">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+<<<<<<< HEAD
+=======
+      <change beforePath="$PROJECT_DIR$/chapter1/7func.go" beforeDir="false" afterPath="$PROJECT_DIR$/chapter1/7func.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/chapter2/9array.go" beforeDir="false" afterPath="$PROJECT_DIR$/chapter2/9array.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/chapter2/pointer.go" beforeDir="false" afterPath="$PROJECT_DIR$/chapter2/pointer.go" afterDir="false" />
+>>>>>>> 751425bb860a57f5e938a83a4900cfcd2fead15f
       <change beforePath="$PROJECT_DIR$/start.go" beforeDir="false" afterPath="$PROJECT_DIR$/start.go" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
