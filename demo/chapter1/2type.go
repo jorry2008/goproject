@@ -4,6 +4,10 @@ package chapter1
 import "fmt"
 
 // Example2 所有像 int、float、bool 和 string 这些基本类型都属于值类型，使用这些类型的变量直接指向存在内存中的值，所有非引用操作，传递的都是值本身
+// 基本类型：int、float、bool 和 string
+// 对应的指针类型：*int、*float、*bool 和 *string
+// 对应数组：[]int、[]float、[]bool 和 []string
+// 对应指针数组：[]*int、[]*float、[]*bool 和 []*string
 func Example2() {
 	println("Example2:")
 	vara := 35
@@ -17,6 +21,11 @@ func Example2() {
 	fmt.Printf("&vara 引用类型为 %T\n", &vara)
 	fmt.Printf("*&vara 解引用类型为 %T\n", *&vara)
 
+	// 见识一下指针类型
+	//abarr := []bool{false, true}
+	//var abarr1 = []*bool{}
+	//println(abarr)
+	//println(abarr1)
 }
 
 /*
