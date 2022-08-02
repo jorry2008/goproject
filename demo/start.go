@@ -7,7 +7,6 @@ package main
 import (
 	"demo/chapter1"
 	"demo/chapter2"
-	"demo/chapter6"
 )
 
 func main() {
@@ -54,8 +53,11 @@ func main() {
 	// 11.结构体
 	chapter2.Example11()
 
+	// 12.切片
+	chapter2.Example12()
+
 	// 临时测试
-	chapter6.Example00007()
+	//chapter6.Example00007()
 
 }
 
