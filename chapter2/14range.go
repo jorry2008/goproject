@@ -14,7 +14,7 @@ func Example14() {
 	//for key, value := range oldMap { // 返回 索引+值、键值
 	//	// oldMap[key] == value
 	//}
-	//for key := range oldMap { // 返回 键、索引
+	//for key := range oldMap { // 返回 键、索引【为什么有这种方式，因为返回索引或键，可以进一步获取值，但只返回值是反向获取不到索引或键的】
 	//	// oldMap[key]
 	//}
 	//for _, value := range oldMap { // 返回 值，将键或索引屏蔽掉

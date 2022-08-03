@@ -14,8 +14,18 @@ var varmap1 map[string]string                                                   
 var varmap2 = map[string]string{"aa": "aa", "bb": "bb", "cc": "cc"}                   // 声明并初始化
 var varmap3 map[string]string = map[string]string{"aa": "aa", "bb": "bb", "cc": "cc"} // 完整写法
 
+// 推荐写法
+var varmap4 = map[string]string{} // 初始化为 {} 有效，可用
+
 func Example13() {
 	println("Example13:")
+
+	varmap4["aa"] = "aa" // 声明，并初始化为 {} 空，可使用
+	// 或
+	varmap5 := make(map[string]int)
+	println("使用make创建的集合，正常分配内存：", &varmap5)
+	println("make创建的集合是否为nil：", varmap5 == nil) // 返回 false
+	varmap5["aa"] = 11                          // 分配了内存，且可用
 
 	println(varmap1)            // 0x0，没有分配内存空间
 	fmt.Println(varmap1 == nil) // 整个集合就是 nil，无法直接存储键值对！！！
@@ -53,3 +63,9 @@ func Example13() {
 		println("China 已经删除")
 	}
 }
+
+// 小结：
+// 1.只声明的 map 没有分配内存其值为 nil，且无法直接使用，但能接受其它 map 数据
+// 2.声明并初始化为 {}，会分配内存，可正常使用
+// 3.使用make()函数，会分配内存，可正常使用
+// 4.只有集合取元素时，如果不存在，同时额外返回一个布尔值作为第二返回值

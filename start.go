@@ -4,9 +4,7 @@ package main
 // 风格要求：非注释的第一行必须指明当前文件所属的包
 // 执行要求：package main 表示一个可独立执行的程序，每个 Go 应用程序都至少包含一个名为 main 的包，且必须包括执行入口 main 函数
 
-import (
-	"demo/chapter2"
-)
+import "demo/chapter2"
 
 func main() {
 
@@ -59,10 +57,19 @@ func main() {
 	//chapter2.Example13()
 
 	// 14.遍历
-	chapter2.Example14()
+	//chapter2.Example14()
 
 	// 15.字符串和字节转化
-	chapter2.Example15()
+	//chapter2.Example15()
+
+	// 16.类型转换：自动转换，强制转换，精度问题
+	//chapter2.Example16()
+
+	// 17.递归写法
+	//chapter2.Example17()
+
+	// 18.接口
+	chapter2.Example18()
 
 	// 临时测试
 	//chapter6.Example00007()

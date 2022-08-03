@@ -28,7 +28,7 @@ func Example12() {
 
 	fmt.Printf("%T, %T \n", s, a) // []int [10]int，从类型可以看出，切片没有长度问题，而数组的长是固定的
 
-	// 数组使用角标范围读取（基于数组生成切片）
+	// 数组使用角标范围读取（基于数组生成切片：这就是删除的原理 ^_^）
 	c := a[3:5] // 从角标为 star 到 角标为 end-1 的元素（不包括 end 角标）
 	for ci, civ := range c {
 		println("c", ci, civ)

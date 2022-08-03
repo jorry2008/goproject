@@ -7,6 +7,7 @@ import (
 // 结构体是由一系列具有相同类型或不同类型的数据构成的数据集合
 // 结构体是开发人员自定义类型集合，是一种新类型的创建方式，跟数组一样，数组是同类型数据的集合，而结构体则完全开放了类型限制（像极了其它语言的类的定义）
 // 结构体中的属性和关联方法，叫成员属性和成员方法（即，所属结构体的变量才叫属性，所属结构体的函数才叫方法）
+// 组合结构体（组合接口），实现了继承特性
 
 type Circle struct {
 	radius float64
@@ -130,6 +131,14 @@ func Example11() {
 	}
 	printMsgTypePtr(msgptr)
 
+	// 组合结构体，实现了继承
+	c := cat{animal: animal{name: "animal", age: 2}, name: "cat"}
+	fmt.Println(c)
+	fmt.Println("name", c.name)
+	fmt.Println("name", c.animal.name)
+	fmt.Println("age", c.age)
+	fmt.Println("age", c.animal.age)
+
 	// 从结构体的定义出发，本质它是一个定义出来的类型，使用这个类型时，与普通类型是完全一样的，传值特性也是一样的
 	//
 	//
@@ -150,6 +159,16 @@ func printMsgTypePtr(msg *struct {
 	data string
 }) {
 	fmt.Printf("匿名结构体，引用传递（跟匿名函数很像）：%T \n", msg) // 结构体的整个类型就是这样的：*struct { id int; data string }
+}
+
+type animal struct {
+	name string
+	age  int
+}
+
+type cat struct {
+	animal
+	name string
 }
 
 /*
