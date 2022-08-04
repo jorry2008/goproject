@@ -96,20 +96,20 @@ func Example18() {
 	nokia2.title = "诺什么机"
 	nokia2.call()
 
-	// 接口的意义：多态
-	vivo := Android1{brand: "Vivo"}
-	ix := IPhone1{"X1.2"}
+	// 接口的意义：继承
+	vivo1 := Android1{brand: "Vivo2"}
+	ix := IPhone1{"X12"}
 
-	printCall(vivo) // 同一个函数，即可以接受 Android1 结构体类型，也可以接受 IPhone1 结构体类型
-	printCall(ix)   // 会隐式地将 vivo 和 ix 对象转换成 Phone1 类型
+	printCall(vivo1) // 同一个函数，即可以接受 Android1 结构体类型，也可以接受 IPhone1 结构体类型
+	printCall(ix)    // 会隐式地将 vivo 和 ix 对象转换成 Phone1 类型
 
 	// 结构、方法、接口 与指针
 	// 重点：如果想要通过方法（包括接口方法，即所有方法）修改属性（属性就是结构体的数据），需要在传入指针的结构体才有效！
 	// 所有，在使用上，所有结构体方法，都传入结构体的指针即可。
 
-	//var fruit1 fruit        // 声明接口
-	//fruit1 = &apple{"糖心苹果"} // 所有声明接口类型变量，只能接受实现了此接口的结构体的指针类型！！！
-	//fruit1.getName()
+	var fruit1 fruit        // 声明接口
+	fruit1 = &apple{"糖心苹果"} // 所有声明接口类型变量，只能接受实现了此接口的结构体的指针类型！！！
+	println(fruit1.getName())
 
 	ap := apple{"红富士"}
 	fmt.Println(ap.getName())
@@ -185,7 +185,7 @@ type mouse struct {
 }
 
 func (m mouse) read() string {
-	return "它的名称为：" + m.name
+	return m.name
 }
 
 func (m *mouse) write(name string) bool { // 写操作，必须传入结构体指针
@@ -194,4 +194,5 @@ func (m *mouse) write(name string) bool { // 写操作，必须传入结构体�
 }
 
 // 值接受者 还是 指针接受者？
+// 对于接口和结构体，要做一期专题：讨论传值和传引用？
 // https://morven.life/posts/golang-interface-and-composition/
