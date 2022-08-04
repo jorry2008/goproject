@@ -85,9 +85,9 @@ func Example19() {
 	// 3.统一的异常处理机制
 	defer func() {
 		if errStruct := recover(); errStruct != nil {
-			switch errStruct.(type) {
+			switch errStruct.(type) { // 断言写法
 			case ErrorWarning:
-				if err2, ok := errStruct.(ErrorWarning); ok { // 强制类型转换
+				if err2, ok := errStruct.(ErrorWarning); ok { // 断言类型转换
 					println(err2.Error())
 					debug.PrintStack()
 				}
