@@ -27,23 +27,38 @@ func Example22() {
 		//	fmt.Println("timeout 1", t)
 	}
 
-	// 2.多路复用
+	// 2.多路复用（永久执行）
 	// select 可以实现多路复用，即同时监听多个 channel
 	// 发现哪个 channel 有数据产生，就执行相应的 case 分支
 	// 如果同时有多个 case 分支可以执行，则会随机选择一个
 	// 如果一个 case 分支都不可执行，则 select 会一直等待
+	/*
+		ch := make(chan int, 1) // 同协程，这里必须要缓冲
+		for {
+			select {
+			case <-ch: // <- ch：接收通道，但是对值不处理
+				time.Sleep(time.Second)
+				fmt.Println("case 1 invoke")
+			case data := <-ch: // data := <-ch：接收通道，并处理从通道中得到的结果
+				time.Sleep(time.Second)
+				fmt.Printf("case 2 invoke %d\n", data)
+			case ch <- 100: // ch <- 100：向通道中发送数据【这个case肯定是无条件执行的】
+				time.Sleep(time.Second)
+				fmt.Println("case3 invoke")
+			}
+		}
+	*/
+	// 上面的程序运行起来之后，case 3 会首先执行，然后 case1 和 case2 会随机执行一个，程序就这样一直交替运行下去
 
-	// 3.双向管道
+	// 3.双向管道（永远执行，手动中断）
 	c2 := make(chan int)
 	quit := make(chan int)
-
 	go func() {
 		for i := 0; i < 10; i++ {
 			fmt.Println("显示：", <-c2) // 同步处于阻塞状态
 		}
 		quit <- 0 // 反向给发送方中断信号
 	}()
-
 	x, y := 0, 1
 	// 处于长期监听状态
 	for { // for + select 一起使用，非常像 range 所实现的功能
@@ -56,4 +71,16 @@ func Example22() {
 		}
 	}
 	// select 的 case 只关注对管道的写和读操作，即操作本身就是其触发事件
+
+	// 4.解除死锁（永远执行）
+	ch4 := make(chan int)
+	for {
+		select {
+		case <-ch4:
+			fmt.Println("case invoke")
+		default:
+			time.Sleep(time.Second)
+			fmt.Println("default invoke") // 如果没有 default，这段程序只有一个 case，而且这个case永远也接收不到管道数据，因此死锁
+		}
+	}
 }
