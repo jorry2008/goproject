@@ -72,13 +72,16 @@ func main() {
 	//chapter2.Example18()
 
 	// 19.错误处理及设计思路：error接口、panic()函数、recover()函数、defer语句、
-	chapter2.Example19()
+	//chapter2.Example19()
 
 	// 20.协程
 	//chapter2.Example20()
 
 	// 21.管道
 	//chapter2.Example21()
+
+	// 22.多路复用
+	chapter2.Example22()
 
 	// 临时测试
 	//chapter6.Example00007()

@@ -1,3 +1,7 @@
+// 1.传值和传引用的问题
+// 2.类型转换的问题：fmt.Println(len(i) / 2) 等于 5 的问题
+
+
 https://www.google.com/search?q=golang+%E6%96%B9%E6%B3%95%E6%8E%A5%E6%94%B6%E8%80%85&rlz=1C1CHWL_enHK982HK983&oq=golang%E6%96%B9%E6%B3%95&aqs=chrome.4.69i57j0i512j0i12i512j0i512l2j0i12i512j0i512j0i12i512l3.14400j0j7&sourceid=chrome&ie=UTF-8
 
 

@@ -95,7 +95,7 @@ func Example19() {
 				// 将错误转换为具体的类型（强制类型转换）
 				if err2, ok := errStruct.(ErrorDanger); ok {
 					println(err2.Error())
-					debug.PrintStack()
+					//debug.PrintStack()
 				}
 			default:
 				fmt.Printf("%T \n", err)

@@ -15,6 +15,8 @@ C++ 与 C# 中为闭包创建了一个类，而被捕获的变量在编译时放
 */
 
 func Example005555() {
+	println("Example005555:")
+
 	// 闭包的特性：
 	// 一、修改引用变量
 	str := "hello world"

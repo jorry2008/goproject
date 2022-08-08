@@ -7,6 +7,6 @@ import (
 	//pack2 "test/test2" // 包名与子目录不同时：包名 项目名/子文件1/子文件2....
 )
 
-func Example005() {
-	fmt.Println()
+func Example23() {
+	fmt.Println("Example23:")
 }
