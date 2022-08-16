@@ -9,6 +9,14 @@ import (
 // 结构体中的属性和关联方法，叫成员属性和成员方法（即，所属结构体的变量才叫属性，所属结构体的函数才叫方法）
 // 组合结构体（组合接口），实现了继承特性
 
+// 匿名结构体（啥用？）
+var (
+	alice Circle
+	bob   Circle
+)
+
+// 初始化结构体变量
+
 type Circle struct {
 	radius float64
 }

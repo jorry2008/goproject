@@ -1,7 +1,11 @@
 package chapter5
 
+import "fmt"
+
 // 理解不了传值、传引用，理解不了引用、指针，理解不了各种复合体...本质原因是因为对类型理解不到位！
 // go 体系中，只有值类型和引用类型两大值，别想了，就这两大类，它们的行为差别非常大，且 string 极为特殊。
+
+// 参考：https://www.cnblogs.com/xbblogs/p/11102970.html
 
 /*
 go语言中的值类型：
@@ -33,3 +37,19 @@ go语言中的字符串类型：
 	我们来重新认识一下字符串，这东西真的非常特殊，本质它应该是个
 	// 待定
 */
+
+func ASaabb() {
+
+	aaa := new(int) // 值类型
+	fmt.Println(aaa)
+
+	ccc := new(struct{}) // 值类型
+	fmt.Println(ccc)
+
+	eee := new([]int) // 引用类型
+	fmt.Println(eee)
+
+	bbb := new(string) // 特殊的引用类型
+	fmt.Println(bbb)
+
+}

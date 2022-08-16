@@ -1,5 +1,7 @@
 package chapter5
 
+import "fmt"
+
 /*
 // go体系中，共有三大类型：值类型、引用类型、指针类型：
 // 值类型，如 整型、浮点、布尔、array、struct 等
@@ -30,7 +32,7 @@ func make(t Type, size ...IntegerType) Type
 
 
 
-make 用来创建map、slice、channel
+make 用来创建 map、slice、channel
 new 用来创建值类型
 
 Golang 的引用类型包括 slice、map 和 chan，它们有复杂的内部结构，除了申请内存外，还需要初始化相关属性，make 会被编译器翻译 成具体的创建函数，由其分配内存和初始化成员结构，返回对象而非指针。
@@ -47,7 +49,35 @@ make(T) 返回类型 T 的初始化之后的值，因此它比 new 进行更多�
 
 参考：https://www.kancloud.cn/uvohp5na133/golang/933995
 
+// 关于编译底层转换的问题？
+
 
 还需要深入研究...
 
 */
+
+func MakeNew() {
+	// new 可以分配所有类型，并返回指针
+	// 值类型、引用类型、指针类型，都可以使用 new 申请空间，并返回指针
+
+	aaa := new(int)      // 值类型
+	bbb := new(struct{}) // 值类型
+	ccc := new([]int)    // 引用类型
+	ddd := new(string)   // 特殊的引用类型
+	eee := new(func())
+	fff := new(interface{})
+	ggg := new(chan string)
+	hhh := new(*[]map[string]map[string]interface{}) // 无限添加。。。。。，返回指针的指针
+	fmt.Println(aaa, bbb, ccc, ddd, eee, fff, ggg, hhh)
+
+	// make 的使用范围
+	// string、slice、map、interface、channel、func
+
+	ss1 := make([]int, 10)
+	ss2 := make(map[int]int)
+	ss3 := make(chan string)
+	//ss4 := make(func)
+	//ss5 := make(interface)
+	//ss6 := make(string)
+	fmt.Println(ss1, ss2, ss3)
+}
