@@ -5,6 +5,19 @@ import (
 	"reflect"
 )
 
+// 在 go 中，万物皆类型！
+
+type CustomName struct{}
+type TypeAlias = map[int]map[string]string // 类型别名：TypeAlias 只是右边类型的别名（本质上两者是对同一个类型的多种称呼）(赋值符号两边完全一样，表示同一个东西)
+type CustomType map[int]map[string]string
+type CustomType1 []int
+type cb func(s string)                  // 看吧，简单的回调函数类型
+type cb1 func(s1 CustomType) (s string) // 在已有类型之上，定义新类型！这个用处太方便了，可以将长长的类型定义包裹起来使用（定义一个函数类型）
+
+// 以下是官方定义，可以看到，byte 和 rune 并不是一个新类型，而是方便识别的别名
+//type byte = uint8
+//type rune = int32
+
 // 结构体的深入理解
 type Cat struct {
 	Name    string
@@ -26,10 +39,12 @@ func setCat(cat *Cat) {
 	fmt.Println(cat.Name)
 }
 
-func Exaple11_2() {
+func Example11_2() {
 
-	// 结构体的变化
-	type mapSS map[int]map[string]string // 这是什么用法？定义复合类型？
+	// 定义一个类型 VS 创建一个类型别名
+	type mapSS map[int]map[string]string    // 直接定义一个新的类型叫 mapSS（mapSS 和 map[int]map[string]string 如同克隆）
+	type mapSS1 = map[int]map[string]string // 给 map[int]map[string]string 类型取了一个新的名称，本质上是一个指针（且这里定义的是一个内置类型别名，不能对其进行拓展）
+	// type的用法，参考：https://juejin.cn/post/6844903926450372616
 
 	// 方式1
 	students := make(map[int]map[string]string) // map的嵌套结构
@@ -41,12 +56,18 @@ func Exaple11_2() {
 		"name": "张四",
 		"sex":  "男",
 	}
-	students[3] = map[string]string{
-		"name": "张五",
-		"sex":  "女",
-	}
-	fmt.Println(students)
-	// 输出 =》map[1:map[name:张三 sex:男] 2:map[name:张四 sex:男] 3:map[name:张五 sex:女]]
+
+	fmt.Println(students) // 输出 =》map[1:map[name:张三 sex:男] 2:map[name:张四 sex:男]]
+
+	var varmapSS mapSS
+	varmapSS = students
+	fmt.Println(varmapSS) // 输出 =》map[1:map[name:张三 sex:男] 2:map[name:张四 sex:男]]
+
+	var varmapSS1 mapSS1
+	varmapSS1 = students
+	fmt.Println(varmapSS1) // 输出 =》map[1:map[name:张三 sex:男] 2:map[name:张四 sex:男]]
+
+	// 结论：原生定义的类型变量、自定义type类型变量、类型别名，三者创建的类型，在使用上是一致的
 
 	// 方式2
 	stus := mapSS{
@@ -66,7 +87,7 @@ func Exaple11_2() {
 	fmt.Println(stus)
 	a, b := stus[1]["name"]
 	fmt.Println(a, reflect.TypeOf(b))
-	// 输出 =》 map[1:map[age:20 name:王武] 2:map[age:24 name:王六] 3:map[age:30 name:王七]]
+	// 输出 =》 map[1:map[age:20 name:王武] 2:map[age:24 name:王六]]
 
 	// 方式1
 	var cat Cat
@@ -109,3 +130,20 @@ func Exaple11_2() {
 	// _, ok := map1[1]
 
 }
+
+// 3种类型来源对应不同的使用行为
+
+// 1.自定义结构体类型
+func (s CustomName) funcName1() {
+
+}
+
+// 2.自定义类型，与普通定义的结构体类型使用上完全一致
+func (s CustomType) funcName2() {
+
+}
+
+// 3.基于内建类型的别名，不允许对其进行修改！！！
+//func (s TypeAlias) funcName3() {
+//
+//}

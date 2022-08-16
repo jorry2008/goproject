@@ -3,9 +3,9 @@ package chapter1
 
 import "fmt"
 
-// Example2 所有像 int、float、bool 和 string 这些基本类型都属于值类型，使用这些类型的变量直接指向存在内存中的值，所有非引用操作，传递的都是值本身
-// 基本类型：int、float、bool 和 string
-// 对应的指针类型：*int、*float、*bool 和 *string
+// Example2
+// 值类型：int、float、bool、array、struct // 使用这些类型的变量直接指向存在内存中的值，所有非引用操作，传递的都是值本身
+// 对应的指针类型：*int、*float、*bool 和 *string // 所有类型，都有其对应的指针类型，包括指针的指针类型
 // 对应数组：[]int、[]float、[]bool 和 []string
 // 对应指针数组：[]*int、[]*float、[]*bool 和 []*string
 func Example2() {
@@ -28,15 +28,7 @@ func Example2() {
 	//println(abarr1)
 }
 
-/*
-如何理解 go 中的引用类型呢？
-同 js 类型一样，只有 int float bool string 几个基本类型，在全局范围内正常传递的是值，
-除此之外，其它类型都是传引用，有点类似对象的意思，
-值是最抽象的一层，
-引用是在值的基础之上的一种实现，
-这也是 go 语言运行的基石。
-*/
-
-// 严格区别这些类型：
-// 原始基本类型，如 字符串、整型、浮点、布尔 等
-// 内置的引用类型，如 数组、slice、map、interface、channel、func、用户自定义的类型 等
+// 严格区别以下三种类型：
+// 值类型，如 整型、浮点、布尔、array、struct 等
+// 引用类型，如 string、slice、map、interface、channel、func 等
+// 指针类型，值类型和引用类型，都可以获取其指针类型

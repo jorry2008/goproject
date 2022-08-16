@@ -1,4 +1,4 @@
-package chapter6
+package chapter5
 
 // 来自 Go 语言的怒吼：声明了一堆、初始化了一堆，你不使用是干啥玩意儿？
 

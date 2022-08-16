@@ -1,10 +1,12 @@
 // 声明
 package main
 
+import (
+	"demo/chapter5"
+)
+
 // 风格要求：非注释的第一行必须指明当前文件所属的包
 // 执行要求：package main 表示一个可独立执行的程序，每个 Go 应用程序都至少包含一个名为 main 的包，且必须包括执行入口 main 函数
-
-import "demo/chapter2"
 
 func main() {
 
@@ -49,6 +51,7 @@ func main() {
 
 	// 11.结构体
 	//chapter2.Example11()
+	//chapter2.Example11_2()
 
 	// 12.切片
 	//chapter2.Example12()
@@ -81,14 +84,23 @@ func main() {
 	//chapter2.Example21()
 
 	// 22.多路复用
-	chapter2.Example22()
+	//chapter2.Example22()
+
+	// 26.内建函数
+	//chapter3.Example26()
 
 	// 临时测试
 	//chapter6.Example00007()
+
+	// 理解与总结
+	// slice map struct 混合使用
+	//chapter6.SliceMapStruct()
+	//传值和传引用
+	chapter5.Reference()
 
 }
 
 // faq列表
 // 1.什么叫隐式包，具体如何操作？
-// 2.从类型的角度出发，整个Go语言表现出理解上的大统？
+// 2.从类型的角度出发，整个Go语言表现出理解上的大统？鸭子类型
 // 3.仍然不理解这个类型 var ppt uintptr？

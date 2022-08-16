@@ -1,6 +1,8 @@
 // Package chapter1 声明与初始化
 package chapter1
 
+// go语言的使用原则：赋值符号两边的类型必须一致，它不存在隐式类型转化。
+
 // PublicVar 公有变量，只定义不使用（任何函数外定义的变量都必须有 var，否则是赋值不是声明）
 var PublicVar string
 

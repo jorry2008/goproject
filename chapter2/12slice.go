@@ -92,6 +92,9 @@ func Example12() {
 	//slice2:=append(slice1,"f","g")
 	//追加另一个切片
 	//slice2:=append(slice1,slice...)
+
+	// 切片的的增删改查！！！【重点】
+	// http://c.biancheng.net/view/30.html // 待完善
 }
 
 // 小结：

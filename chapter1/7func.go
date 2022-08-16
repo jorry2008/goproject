@@ -59,6 +59,19 @@ func Example7() {
 
 	// 闭包
 	// 请查看：closure
+
+	// 函数类型（golang中，万物皆类型）
+	var nf FuncType
+	nf = StrFunc // 名称、参数、返回值，相同，即类型相同，同类型可赋值（函数类型，同 map 一样是引用类型，函数名就是函数体的内存地址入口）
+	str := "hello world"
+	nf(str) // uint8 hello world
+}
+
+type FuncType func(string) // 定义了一个类型，基于函数类型创建
+
+func StrFunc(s string) {
+	fmt.Printf("%T ", s[1])
+	fmt.Println(s)
 }
 
 // 正常情况下，函数声明告诉了编译器函数的名称，返回类型，和参数（一个函数类型，包括：函数名、参数列表、返回列表 三部分）
@@ -94,3 +107,8 @@ func Other() {
 func funcback(num float64, f func(x float64) float64) float64 { // 一个函数的定义包括：函数名、参数列表、返回参数列表 三者组合在一起才叫一种函数类型！！！
 	return f(num)
 }
+
+// 小结：
+// 1.函数类型，是引用类型，函数名是变量，存储的就是函数体的内存地址入口。
+// 2.go函数的参数，就是值传递，至于传的是值类型还是引用类型，是由参数自身决定。（并不是函数的某种机制）
+// 3.函数名、参数列表、返回列表，三者相同，就认为是同一个函数类型。

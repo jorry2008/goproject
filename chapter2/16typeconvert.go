@@ -3,7 +3,9 @@ package chapter2
 import "fmt"
 
 // 类型转换：自动转换，强制转换，精度问题
-// 整型、布尔、浮点、字符串、虚数 基本类型的转换
+// 整型、布尔、浮点、虚数 等，值类型的转换
+// 字符串 引用类型的转换
+// struct 类型转换
 
 func Example16() {
 	println("Example16:")
