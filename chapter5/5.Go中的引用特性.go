@@ -25,6 +25,7 @@ func Example844564() {
 	var m map[int]int
 	fn(m)
 	fmt.Println(m == nil)
+
 }
 
 // 都说，go 中的引本质就是由指针实现的，并不是真正的引用，为什么呢？以map举例：
