@@ -12,6 +12,8 @@ import (
 // 引用类型：slice、map、channel、interface、func、（特殊）string
 // 指针类型：独立体系（根据它的定义来就可以了）
 
+// go只有传值与php一样？？？？
+
 type Cat struct {
 	Name    string                     // 默认值 ""
 	Age     int                        // 默认值 0
