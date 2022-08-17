@@ -10,7 +10,7 @@ import "fmt"
 // 声明变量，默认 map 是 nil
 // 如果不初始化 map，那么就会创建一个 nil map，而 nil map 不能用来存放键值对（不能直接使用），但可以接受其它同类型的集合
 
-var varmap1 map[string]string                                                         // 只声明，不初始化为 nil，没有分配空间
+var varmap1 map[string]string                                                         // 只声明，不初始化为 nil，没有分配值空间
 var varmap2 = map[string]string{"aa": "aa", "bb": "bb", "cc": "cc"}                   // 声明并初始化
 var varmap3 map[string]string = map[string]string{"aa": "aa", "bb": "bb", "cc": "cc"} // 完整写法
 

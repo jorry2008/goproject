@@ -4,8 +4,9 @@ import (
 	"fmt"
 )
 
-// 在Go语言中的值类型有：int、float、bool、string、array、struct 等
+// 在Go语言中的类型有：int、float、bool、string、array、slice、map、struct、func、interface 等
 // 它们都有对应的指针类型，比如：*int、*float 等
+// 从结构上可以看出，指针是成对存在的，一个指针声明了，必须要先指向，才可以使用！！！
 
 // 对变量进行取地址（&）操作，可以获得这个变量的指针变量
 // 对指针变量进行取值（*）操作，可以获得指针变量指向的原变量的值
@@ -18,6 +19,8 @@ var ppt3 *string
 
 // 从原理上讲，指针就是存储内存地址的16进制值
 // 声明后，指针类型的变量初始值为 16 进制 0，且对应的内存空间不存在
+
+// 重点：声明的指针，先指向对应的类型，才可以使用！！！
 
 func Example10() {
 
@@ -84,6 +87,15 @@ func Example10() {
 	swapNum(&yy, &jj)
 	println("两个值已经交换了：", yy, jj)
 
+	// 声明、指向、使用
+	//var i1 *int      // 声明
+	//*i1 = 10         // 没有指向的指针直接使用，这里没有报错是，但用法错误
+	//fmt.Println(*i1) // panic: runtime error: invalid memory address or nil pointer dereference
+	// 正确写法：
+	var i2 *int   // 声明
+	i2 = new(int) // 指向（new(Type) *Type，返回对应类型的指针）
+	*i2 = 10      // 使用 // int是值类型，可以直接使用！
+	fmt.Println(*i2)
 }
 
 func swapNum(x, y *int) {

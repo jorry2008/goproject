@@ -11,7 +11,8 @@ func (p *pArr) oopFunc() {
 	(*p)[3] = 111
 }
 
-func tttttttt() {
+func Example5_1() {
+	fmt.Println("Example5_1:")
 
 	// 类似面向对象的方法（这种风格非常具有面向对象特性）
 	p := make(pArr, 4)

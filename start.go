@@ -1,13 +1,11 @@
 // 声明
+// 风格要求：非注释的第一行必须指明当前文件所属的包（系统会自动格式化）
 package main
 
-import (
-	"demo/chapter5"
-)
+import "github.com/jorry2008/goproject-demo/chapter5"
 
-// 风格要求：非注释的第一行必须指明当前文件所属的包
-// 执行要求：package main 表示一个可独立执行的程序，每个 Go 应用程序都至少包含一个名为 main 的包，且必须包括执行入口 main 函数
-
+// 执行要求：package main 表示一个可独立执行的程序，每个 Go 应用程序都至少包含一个名为 main 的包，且必须包括执行入口 main 函数（这也是唯一一个强制包名不等于所在目录名一致的地方）
+// 极简：Go 的 main 函数既没有参数，也没有返回值
 func main() {
 
 	// 第一单元
@@ -86,6 +84,8 @@ func main() {
 	// 22.多路复用
 	//chapter2.Example22()
 
+	// 第三单元
+
 	// 26.内建函数
 	//chapter3.Example26()
 
@@ -95,8 +95,12 @@ func main() {
 	// 理解与总结
 	// slice map struct 混合使用
 	//chapter6.SliceMapStruct()
+	// var、make、new区别
+	chapter5.Example5_3()
+
 	//传值和传引用
-	chapter5.Reference()
+	//chapter5.Reference()
+	//chapter5.Example5_5()
 
 }
 

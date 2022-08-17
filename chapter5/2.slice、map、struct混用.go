@@ -10,8 +10,8 @@ type stu struct {
 	age  int
 }
 
-func SliceMapStruct() {
-	fmt.Println("SliceMapStruct:")
+func Example5_2() {
+	fmt.Println("Example5_2:")
 
 	// 一、map 嵌套
 	students := make(map[int]map[string]string)
@@ -20,10 +20,14 @@ func SliceMapStruct() {
 	students[1] = map[string]string{}     // 形式2
 	// 赋值方式2
 	students1 := map[int]map[string]string{
-		0: {"name": "张三",
-			"sex": "男"},
-		1: {"name": "张四",
-			"sex": "男"},
+		0: {
+			"name": "张三",
+			"sex":  "男",
+		},
+		1: {
+			"name": "张四",
+			"sex":  "男",
+		},
 	}
 	fmt.Println(students)
 	fmt.Println(students1)
