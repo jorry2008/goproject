@@ -27,8 +27,9 @@ type Cat struct {
 }
 
 type Cat2 struct {
+	// 在定义结构体字段时，除字段名称和数据类型外，还可以使用反引号为结构体字段声明元信息，这种元信息称为Tag，用于编译阶段关联到字段当中
 	// `json:"name"` 指定序列化后的 Name =》name
-	Name  string `json:"name"` // 这是个什么鬼？
+	Name  string `json:"name"` // 序列化转化
 	Age   int
 	Color string
 }
@@ -134,7 +135,7 @@ func Example11_2() {
 // 3种类型来源对应不同的使用行为
 
 // 1.自定义结构体类型
-func (s CustomName) funcName1() {
+func (s CustomName) funcName1() { // 这个 CustomName 类型的变量 s 称为方法接收器，专门用来传递结构体的，相当于其它语言中的 this
 
 }
 

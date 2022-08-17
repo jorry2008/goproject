@@ -2,9 +2,22 @@ package chapter5
 
 import "fmt"
 
-func Example00000284() {
-	fmt.Println("Example00000284:")
+func Example5_9() {
+	fmt.Println("Example5_9:")
 
 	// 给结构体增加方法时，在绑定的过程中，到底是使用值接受者还是指针接受者？
-	
+
+	// 先来解决第一个问题：结构体为什么要使用指针传递？
+	// 结构体使用 var 还是 new() 创建，哪个好？
+
+	//var m1 *Member
+	//m1.name = "小明" //错误用法，未初始化,m1为nil
+	//
+	//m1 = &Member{}
+	//m1.name = "小明" //初始化后，结构体指针指向某个结构体地址，才能访问字段，为字段赋值。
+	//
+	////复制代码另外，使用Go内置new()函数，可以分配内存来初始化结构休，并返回分配的内存指针，因为已经初始化了，所以可以直接访问字段。
+	//var m2 = new(Member)
+	//m2.name = "小红"
+
 }

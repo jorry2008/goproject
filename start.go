@@ -92,11 +92,16 @@ func main() {
 	// 临时测试
 	//chapter6.Example00007()
 
-	// 理解与总结
+	// 第五单元：理解与总结
+
 	// slice map struct 混合使用
-	//chapter6.SliceMapStruct()
+	//chapter5.Example5_2()
+
 	// var、make、new区别
-	chapter5.Example5_3()
+	//chapter5.Example5_3()
+
+	// 指针与引用
+	chapter5.Example5_4()
 
 	//传值和传引用
 	//chapter5.Reference()

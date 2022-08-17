@@ -37,6 +37,8 @@ import (
 func Example5_3() {
 	fmt.Println("Example5_3:")
 
+	// 注意：new() 对值类型和引用类型，操作的行为不一样，对值类型 new() 申请了空间可直接使用，对引用类型 new() 没有申请空间不能直接使用！
+
 	// 一、new 可以分配所有类型，初始化零值，返回指针
 	p1 := new(bool)     // 值类型，零值为 false
 	p2 := new(int)      // 值类型，零值为 0
