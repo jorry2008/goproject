@@ -48,8 +48,8 @@ func (s *newSlice) HelloPointer() {
 	(*s)[0] = 100
 }
 
-func Example5_9() {
-	fmt.Println("Example5_9:")
+func Example5_7() {
+	fmt.Println("Example5_7:")
 
 	// 一、结构体类型 自动解引用
 	n1 := new(node)      // 等价 var n5 *node = new(node) 也等价于 var n5 *node = &node{}
