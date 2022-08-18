@@ -2,6 +2,11 @@ package chapter2
 
 import "fmt"
 
+// 接口是隐性的背后的王！
+// go中的所有类型都实现了 interface{} 的接口（空接口），这意味着，所有的类型（如 string,int,int64 甚至是自定义的 struct 类型）都就此拥有了 interface{} 接口，这种做法和 java 中的 Object 类型类似
+// 那么在一个数据通过 func funcName(interface{}) 的方式传进来的时候，也就意味着这个参数被自动的转为 interface{} 的类型。也即，这个函数支持所有类型
+// 正因为这个规则，go语言中提供了断言的功能（后面再说）
+
 // 整体看待：数据类型、结构体、接口、方法，三个元素
 /*
 结构体可以理解为，将其它数据类型(或其它结构体类型)自定义组合到一起，形成的一个新的数据类型；【开发者设计的入口】
@@ -131,6 +136,23 @@ func Example18() {
 	rw1 = &mouse{"初始化名称"} // 注意注意：接口声明变量，必须接受同结构体的指针类型！！！
 	rw1.write("jorry2")
 	println("写入的名称是：", rw1.read())
+
+	// 空接口类型的值包裹着各种非接口值的例子【重】
+	var i interface{}
+	i = []int{1, 2, 3}
+	fmt.Println(i) // [1 2 3]
+	i = map[string]int{"Go": 2012}
+	fmt.Println(i) // map[Go:2012]
+	i = true
+	fmt.Println(i) // true
+	i = 1
+	fmt.Println(i) // 1
+	i = "abc"
+	fmt.Println(i) // abc
+
+	// 将接口值i中包裹的值清除掉。
+	i = nil
+	fmt.Println(i) // <nil>
 }
 
 type Phone1 interface { // 可以跳转到 实现接口的结构体

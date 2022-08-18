@@ -110,7 +110,10 @@ func main() {
 	//chapter5.Example5_7()
 
 	// string 类型深入
-	chapter5.Example5_8()
+	//chapter5.Example5_8()
+
+	// 类型转换 强制、断言、显示、隐式
+	chapter5.Example5_10()
 
 }
 
