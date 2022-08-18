@@ -6,6 +6,7 @@ import (
 )
 
 // 在 go 中，万物皆类型！
+// new(Type) 和 &Type{} 等价
 
 type CustomName struct{}
 type TypeAlias = map[int]map[string]string // 类型别名：TypeAlias 只是右边类型的别名（本质上两者是对同一个类型的多种称呼）(赋值符号两边完全一样，表示同一个东西)
@@ -92,23 +93,23 @@ func Example11_2() {
 
 	// 方式1
 	var cat Cat
-	fmt.Println(cat) // 输出 =》{ 0  <nil>}
+	fmt.Println(cat) // { 0  <nil>}
 
 	// 方式2
 	cat2 := Cat{}     // 与 &Cat{} 写法有什么差别？
-	fmt.Println(cat2) // 输出 =》{ 0  <nil>}
+	fmt.Println(cat2) // { 0  <nil>}
 
 	// 方式3
 	// new一个指针，引用类型
 	cat3 := new(Cat) //等价 （var cat3 *Cat = new(Cat)）
 	(*cat3).Name = "aaa"
-	cat3.Name = "bbb"  // 两种写法都可以，底层转化为=》(*cat3).Name = "bbb"（注意：这是语法糖？它应该如何写？）
-	fmt.Println(*cat3) // 输出 =》{bbb 0  <nil>}
+	cat3.Name = "bbb"  // 自动解引用，编译时自动转化为 (*cat3).Name = "bbb"
+	fmt.Println(*cat3) // {bbb 0  <nil>}
 
 	// 方式4
-	cat4 := &Cat{}
+	cat4 := &Cat{} // new(Type) 和 &Type{} 等价
 	(*cat4).Name = "111"
-	fmt.Println(*cat4) // =》{111 0  <nil>}
+	fmt.Println(*cat4) // {111 0  <nil>}
 
 	// 结构体切片
 	str := ""

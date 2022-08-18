@@ -5,14 +5,15 @@ import (
 )
 
 // 很多人无法清晰的知道 传值、传引用？
-// 一方面，自己有太多的执念，将简单的内容复杂化了。
-// 另一方面，基础不扎实，特别是数据类型的相关概念没有理解透。
+// 这个问题主要是因为语言不同，形参和实参的传递行为也不同，通常所说的传引用是针对 c、c++、java 而言的。
+// 先说结论：在 Go 语言中，没有传引用这个东西。
 
 // 值类型：int、float、bool、array、sturct
 // 引用类型：slice、map、channel、interface、func、（特殊）string
-// 指针类型：独立体系（根据它的定义来就可以了）
+// 指针类型：为了好理解将它单独出来（在归类中，它属于引用体系，叫透明引用）
 
-// go只有传值与php一样？？？？
+// go只有传值与php一样，别多想，就是这么简单
+// 注意：在测试值或引用传递的过程中，小心一点编译自动类型转换
 
 type Cat struct {
 	Name    string                     // 默认值 ""
@@ -22,63 +23,31 @@ type Cat struct {
 	cb      func(map2 *map[string]int) // 默认值 nil // 回调函数
 }
 
-func Reference() {
-	fmt.Println("Reference:")
+func Example5_6() {
+	fmt.Println("Example5_6:")
 
 	// 自定义3个数据类型（只声明未初始化）
 	var varInt int
 	var varSlice []int
-	var varCat Cat // 自定义类型同样有零值（即每个属性自身的默认值），这里的结构体用法就是一个普通值类型的用法，完全一样
+	var varCat Cat // 自定义类型同样有零值（即每个属性自身的默认值）
 
+	SetInt(varInt) // 传递过去的就是值类型
 	fmt.Println(varInt)
+	SetIntPoint(&varInt) // 传递过去的就是值类型指针
+	fmt.Println(varInt)
+
+	varSlice = make([]int, 8, 16)
+	SetSlice(varSlice) // 传递过去的是引用
 	fmt.Println(varSlice)
+	SetSlicePoint(&varSlice) // 传递过去的是引用指针
+	fmt.Println(varSlice)
+
+	SetCat(varCat) // 传递过去的是值类型
+	fmt.Println(varCat)
+	SetCatPoint(&varCat) // 传递过去的是值类型指针
 	fmt.Println(varCat)
 
-	SetInt(varInt)
-	fmt.Println(varInt)
-
-	varSlice = append(varSlice, 8)
-	fmt.Printf("%T \n", varSlice) // 输出 []int，slice 本身就是引用类型，不需要转化为指针（也可以转化）
-	SetSlice(varSlice)            // varSlice 本身是引用类型
-	fmt.Println(varSlice)
-
-	fmt.Printf("%T \n", varCat)
-	SetCat(varCat)
-	fmt.Println(varCat) // 值仍然未变，它表现出来的行为跟普通类型一样，即不是引用，也不是指针
-
-	SetIntPoint(&varInt) // 参数为指针时，值被修改了
-	fmt.Println(varInt)
-
-	varSlice = append(varSlice, 88)
-	SetSlicePoint(&varSlice) // 将引用类型，以指针的方式传递！！
-	fmt.Println(varSlice)
-
-	SetCatPoint(&varCat)
-	fmt.Println(varCat) // 值仍然未变，它表现出来的行为跟普通类型一样
-
 	// 小节：自定义结构体类型的用法与普通类型，完全一样！
-
-	//// 六、结构体值类型
-	//// new一个指针，引用类型
-	//cat3 := new(Cat) //等价 （var cat3 *Cat = new(Cat)）
-	//(*cat3).Name = "aaa"
-	//cat3.Name = "bbb"  // 两种写法都可以，底层转化为=》(*cat3).Name = "bbb"
-	//fmt.Println(*cat3) // 输出 =》{bbb 0  <nil>}
-	//fmt.Println(cat3)  // 它本身是一个地址值
-	//
-	//// 方式4
-	//cat4 := &Cat{}
-	//(*cat4).Name = "111"
-	//cat4.Name = "222"  // 底层转化
-	//fmt.Println(*cat4) // =》{222 0  <nil>}
-	//fmt.Println(cat4)  // 它本身是一个地址值
-	//
-	//cat5 := Cat{}
-	//cat5.Name = "333"
-	//SetCatPoint(&cat5) // 传入指针
-	//SetCat(cat5)
-	////fmt.Println(*cat5) // 没有???
-	//fmt.Println(cat5)
 }
 
 func SetInt(i int) {
@@ -97,13 +66,16 @@ func SetSlicePoint(s *[]int) {
 	(*s)[0] = 99
 }
 
-func SetCat(c Cat) { // 这里是否表示指标（是否带*），取决于传入值本身的类型！！！
+func SetCat(c Cat) {
 	c.Name = "Tom"
+	// (&c).Name = "ee" // 这个用法非常有意思，c是结构体，有属性，&c 为指针值类型，(&c).Name这个调用就是将值类型转化为指针值类型，然后再自动类型转换为值类型....
 }
 
-func SetCatPoint(c *Cat) { // 这里是否表示指标（是否带*），取决于传入值本身的类型！！！
-	c.Name = "Tom"
+func SetCatPoint(c *Cat) {
+	// (*c).Name = "Tom" // 根据类型，这个用法才是正常的
+	c.Name = "Tom" // 可以直接访问属性，是基于自动类型转换
 	c.Age = 50
 	c.Color = "red"
-	//(*c).Name = "Tom" // 底层自动转化，就这一点点区别
 }
+
+// 经过测试，函数的形参是什么类型，实参对应就是什么类型，而且实参接收到的就是形参内存里储存的内容！！！！就是值传递

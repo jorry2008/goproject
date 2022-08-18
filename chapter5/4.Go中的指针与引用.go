@@ -24,8 +24,6 @@ import "fmt"
 
 // go 语言中只有这几个类型有引用特性：slice、map、chan、func、interface
 
-// 以下重点讲解：Go语言自带隐式解引用
-
 func Example5_4() {
 	fmt.Println("Example5_4:")
 
@@ -37,13 +35,12 @@ func Example5_4() {
 	fmt.Println(s1)
 
 	// 指针特性
-	cat3 := new(Cat1)      // 等价 （var cat3 *Cat = new(Cat)）
-	(*cat3).Name = "Jerry" // 对于结构体，有两种使用方法
-	cat3.Name = "Tom"      // 这种方法，比较特殊，正常意义不应该这么操作，这里底层转化为 => (*cat3).Name = "bbb"（注意：这个是Go语言自带隐式解引用）
-	fmt.Println(*cat3)
+	cat1 := new(Cat1) // 等价 （var cat1 *Cat = new(Cat1)）
+	cat1.Name = "Tom" // 隐式解引用
+	fmt.Println(*cat1)
 
 	v1 := new(int)
-	*v1 = 15 // 直接类型可直接基于 * 使用（）
+	*v1 = 15 // 值类型可直接基于 * 使用
 }
 
 func func1(s []int) { // 切片本身就是引用类型，所以函数内外相互影响，对于 s 而言，它就是拷贝一个值，只是这个值本身就是引用而已

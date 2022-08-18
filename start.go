@@ -104,11 +104,10 @@ func main() {
 	//chapter5.Example5_4()
 
 	//传值和传引用
-	//chapter5.Reference()
-	//chapter5.Example5_5()
+	chapter5.Example5_6()
 
 	// 值接收器还是指针接收器
-	chapter5.Example5_9()
+	//chapter5.Example5_9()
 
 }
 
