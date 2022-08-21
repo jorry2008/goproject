@@ -28,11 +28,11 @@ type node struct {
 	Next *node
 }
 
-func (n node) Say() {
+func (n node) Say() { // 接收器 n 实际是 node 值类型，应该是值类型调用 Say() 方法（(n node)表示类型绑定）
 	n.Name = "值类型"
 }
 
-func (n *node) SayPointer() { // n 表示绑定类型的接受器
+func (n *node) SayPointer() { // 接收器 n 实际是 *node 指针类型，应该是指针类型调用 SayPointer() 方法（(n *node)表示类型绑定）
 	(*n).Name = "指针类型" // 同样，这里也有解引用（如果指针类型指向的原始类型为引用类型时）
 	n.Name = "这里也是解引用"
 }
@@ -40,13 +40,17 @@ func (n *node) SayPointer() { // n 表示绑定类型的接受器
 // 引用类型演示
 type newSlice []int
 
-func (s newSlice) Hello() {
+func (s newSlice) Hello() { // 同上
 	s[0] = 100
 }
 
-func (s *newSlice) HelloPointer() {
+func (s *newSlice) HelloPointer() { // 同上
 	(*s)[0] = 100
 }
+
+// 小结：将方法绑定到指定类型的过程，叫方法的类型绑定，到底绑定在了x类型上还是指针x类型上，取决于接收器的类型。
+
+// 而为了开发者使用方便，go语言有自动类型转换特性，这个特性如下：在非接口方法绑定时，不论调用实例是什么类型（普通类型或指针类型），都可以直接调用任何类型（同类型或不同类型）的接收器方法，两者不同则自动转换，相同则不转换（自动解引用、自动取引用）
 
 func Example5_7() {
 	fmt.Println("Example5_7:")
