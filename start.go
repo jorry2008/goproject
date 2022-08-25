@@ -113,10 +113,13 @@ func main() {
 	//chapter5.Example5_8()
 
 	// 类型转换 强制、断言、显示、隐式
-	chapter5.Example5_10()
+	//chapter5.Example5_10()
 
 	// 接口的实现
 	//chapter5.Example5_11()
+
+	// 可寻址&不可寻址
+	chapter5.Example5_12()
 
 }
 
