@@ -3,7 +3,7 @@ package chapter2
 import "fmt"
 
 func Example17() {
-	println("Example:")
+	fmt.Println("Example:")
 
 	// 顺序打印
 	i := 5

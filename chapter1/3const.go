@@ -48,7 +48,7 @@ const (
 )
 
 func Example3() {
-	println("Example3:")
+	fmt.Println("Example3:")
 
 	const LENGTH int = 10
 	const WIDTH int = 5

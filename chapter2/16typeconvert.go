@@ -8,7 +8,7 @@ import "fmt"
 // struct 类型转换
 
 func Example16() {
-	println("Example16:")
+	fmt.Println("Example16:")
 
 	// 1.自动转换
 	fmt.Printf("%T \n", 25.2+10) // float64，自动转化，保住了精度

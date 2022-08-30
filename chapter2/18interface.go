@@ -83,7 +83,7 @@ func (iPhone IPhone) call() {
 }
 
 func Example18() {
-	println("Example:")
+	fmt.Println("Example:")
 
 	// 使用 new() 函数创建一个结构体实例
 	nokia := new(NokiaPhone)

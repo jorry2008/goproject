@@ -33,7 +33,7 @@ func (c Circle) getArea() float64 {
 }
 
 func Example11() {
-	println("Example11:")
+	fmt.Println("Example11:")
 	// 结构体的”实例化“直接声明即可
 
 	var varint int

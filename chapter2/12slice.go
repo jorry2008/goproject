@@ -13,7 +13,7 @@ var emptySlice1 = []int{}       // 声明一个切片，并初始化
 var emptySlice2 []int = []int{} // 声明一个切片，同上
 
 func Example12() {
-	println("Example12:")
+	fmt.Println("Example12:")
 
 	// 只声明不初始化的切片默认为nil，表示还未分配空间，声明并使用{}初始化为空切片其值就是空
 	println(emptySlice)                  // 空表示：[0/0]0x0

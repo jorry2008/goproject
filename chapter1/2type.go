@@ -9,7 +9,7 @@ import "fmt"
 // 对应数组：[]int、[]float、[]bool 和 []string
 // 对应指针数组：[]*int、[]*float、[]*bool 和 []*string
 func Example2() {
-	println("Example2:")
+	fmt.Println("Example2:")
 	vara := 35
 	// 取址运算符 &
 	println(&vara) // 再判断一下是否是指针类型？

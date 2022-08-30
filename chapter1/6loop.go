@@ -5,7 +5,7 @@ import (
 )
 
 func Example6() {
-	println("Example6:")
+	fmt.Println("Example6:")
 
 	// for 循环可以有三种形式，且不直接支持 while：
 	// for init; condition; post {} // 标准的 c 语言形式

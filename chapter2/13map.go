@@ -18,7 +18,7 @@ var varmap3 map[string]string = map[string]string{"aa": "aa", "bb": "bb", "cc": 
 var varmap4 = map[string]string{} // 初始化为 {} 有效，可用
 
 func Example13() {
-	println("Example13:")
+	fmt.Println("Example13:")
 
 	varmap4["aa"] = "aa" // 声明，并初始化为 {} 空，可使用
 	// 或

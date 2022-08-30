@@ -2,7 +2,7 @@
 // 风格要求：非注释的第一行必须指明当前文件所属的包（系统会自动格式化）
 package main
 
-import "github.com/jorry2008/goproject-demo/chapter5"
+import "github.com/jorry2008/goproject-demo/chapter3"
 
 // 执行要求：package main 表示一个可独立执行的程序，每个 Go 应用程序都至少包含一个名为 main 的包，且必须包括执行入口 main 函数（这也是唯一一个强制包名不等于所在目录名一致的地方）
 // 极简：Go 的 main 函数既没有参数，也没有返回值
@@ -85,9 +85,13 @@ func main() {
 	//chapter2.Example22()
 
 	// 第三单元
-
-	// 26.内建函数
+	// 23.模块
+	chapter3.Example23()
+	// 24.包
+	//chapter3.Example24()
+	// 25.内建函数
 	//chapter3.Example26()
+	//chapter3.Example29()
 
 	// 临时测试
 	//chapter6.Example00007()
@@ -119,7 +123,8 @@ func main() {
 	//chapter5.Example5_11()
 
 	// 可寻址&不可寻址
-	chapter5.Example5_12()
+	//chapter5.Example5_12()
+	//chapter5.Example5_12_1()
 
 }
 

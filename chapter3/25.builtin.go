@@ -23,7 +23,7 @@ func Example26() {
 		fmt.Println 输出到标准输出，而 println 输出至标准错误
 		println 主要程序启动和调试时用的，应该是语言内部实现主要用它
 
-		// 两者的效果也不同，println 对结构体输出为指针（不接受数组和结构体），fmt.Println 输出的确是类型的字面量且会调用各种类型的 String() string 或 Error() string 方法
+		// 两者的效果也不同，println 对结构体输出为指针（不接受数组和结构体），fmt.Println 输出的是类型的字面量且会调用各种类型的 String() string 或 Error() string 方法
 		参考：https://www.zhihu.com/question/335186436/answer/756368792
 	*/
 

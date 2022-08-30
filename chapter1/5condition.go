@@ -5,7 +5,7 @@ import "fmt"
 // Example5 注意：Go 没有三目运算符，所以不支持 ?: 形式的条件判断，更不支持合并运算符 ??
 // 重点：Go 中只有 if、switch 和 select 三种条件语句（其中 select 只用于信道场景）
 func Example5() {
-	println("Example5:")
+	fmt.Println("Example5:")
 
 	// 判断条件为 expr 逻辑运算表达式，标准的 c 语言结构，同 php
 	if true {

@@ -1,9 +1,11 @@
 package chapter5
 
+import "fmt"
+
 // 来自 Go 语言的怒吼：声明了一堆、初始化了一堆，你不使用是干啥玩意儿？
 
 func Example00007() {
-	println("Example00007:")
+	fmt.Println("Example00007:")
 
 	// 一个变量，声明了不算被使用了，局部变量会报错
 	// 一个变量，声明了，且初始化了，也不算使用了，局部变量仍然会报错

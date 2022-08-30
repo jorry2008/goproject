@@ -50,7 +50,7 @@ func New(text string) error {
 // 再比如，如果局部有致命错误，则在局部的 defer 中还可以继续 panic 向外抛出，直到整个程序失败，或者将异常抛出到最外层的 recover 进行统一接受并处理；
 
 func Example19() {
-	println("Example19:")
+	fmt.Println("Example19:")
 
 	// 方式一：直接返回错误，使用原生包装方法（官方提供的简易字符串结构体）
 	err := TryErrorFn()

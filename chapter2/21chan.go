@@ -18,7 +18,7 @@ import (
 */
 
 func Example21() {
-	println("Example21:")
+	fmt.Println("Example21:")
 
 	// 0.管道的本意：死锁问题
 	// 管道用于协程间数据传递，有同步和阻塞两种模式

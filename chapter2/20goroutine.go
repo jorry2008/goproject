@@ -8,7 +8,7 @@ import (
 // 通道，同样支持 range，支持遍历的数据还包括：数组、切片、集合、通道
 
 func Example20() {
-	println("Example20:")
+	fmt.Println("Example20:")
 
 	// 1.协程之间的独立性
 	// 从结果可以看出，两个同时执行的协程，毫无规律的在执行

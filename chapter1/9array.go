@@ -20,7 +20,7 @@ var balance2 = [5]float32{1: 2.0, 3: 7.0} // 选择性初始化，将索引为 1
 // 注意：初始化数组中 {} 中的元素个数不能大于 [] 中的数字
 
 func Example9() {
-	println("Example9:")
+	fmt.Println("Example9:")
 
 	// 数组遍历
 	balance2[4] = 25

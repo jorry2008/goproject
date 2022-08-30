@@ -28,7 +28,7 @@ var ppt3 *string
 
 func Example10() {
 
-	println("Example10:")
+	fmt.Println("Example10:")
 
 	// 只声明的指针类型，其值为 nil
 	println(ppt1) // 0x0 十六进制 0

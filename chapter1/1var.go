@@ -28,7 +28,7 @@ var ff float32
 //g, h := 123, "hello"
 
 func Example1() {
-	println("Example1:")
+	fmt.Println("Example1:")
 	// 便捷格式批量声明的变量，必须使用，否则报错【:=这是唯一声明不需要var的方式，其它方式没有var就成了赋值操作而不是声明】
 	g, h := 123, "hello"
 	println(x, y, a, b, c, d, e, f, g, h, ff)
