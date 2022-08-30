@@ -11,6 +11,10 @@ type I1 interface {
 	func1() string
 }
 
+type s1 struct {
+	name string
+}
+
 func Example29() {
 	fmt.Println("Example29:")
 
